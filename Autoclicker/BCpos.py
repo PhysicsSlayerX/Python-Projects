@@ -32,7 +32,8 @@ def on_click(x, y, button, pressed):
         lines.append('{}'.format((x,y)))
         print('[Browser {}] {} at {}'.format(browser, name_list[count],(x,y)))
         count += 1
-
+        if count == len(name_list):
+            print("...Next Batch...")
     if count == len(name_list):
         browser += 1
         count = 0
@@ -46,3 +47,4 @@ def on_click(x, y, button, pressed):
 listener = mouse.Listener(on_click=on_click)
 listener.start()
 listener.join()
+

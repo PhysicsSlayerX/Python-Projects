@@ -22,12 +22,12 @@ name_list = ['All1', 'All2', 'All3', 'All4',
              'RA1', 'RA2', 'RA3', 'RA4']
 
 pos = []
-timeInterval = 0.1; #one second interval
+timeInterval = 0.25; #one second interval
 numSteps = 24;
 secs = 1
 minutes = 60*secs
-bombingTime = 15*minutes
-restingTime = 15*minutes
+bombingTime = 20*minutes
+restingTime = 75*minutes
 
 #####################################################
 # Import the locations.txt
@@ -76,13 +76,15 @@ while True:
         count +=1
         print(count)
         if count == 12:
-            print('Let them sleep')
+            print('Bombing time')
             sleep(bombingTime)
+            print('Let them sleep')
             
         if count >= 24:
             count = 0
-            print('Wake the bombers!')
+            print('Sleeping Time')
             sleep(restingTime)
+            print('Wake the bombers!')
             
             
 
