@@ -13,12 +13,22 @@ browser  = 1
 #    'Work Button (All)', 'Rest Button (All)', 'Close Button (Char List)', 
 #    'Back to Treasure Hunt', 'Back to Main Menu']
 
-name_list = ['All1', 'All2', 'All3', 'All4', 
-             'Exit1', 'Exit2', 'Exit3', 'Exit4', 
-             'TH1','TH2', 'TH3', 'TH4',
-             'Back1', 'Back2', 'Back3', 'Back4',
-             'HP1', 'HP2', 'HP3', 'HP4',
-             'RA1', 'RA2', 'RA3', 'RA4']
+name_list1 = [];
+for i in range(8):
+    for j in range(3):
+        name_list1.append(str(i+1)+str(j+1))
+
+print(name_list1)
+
+name_list2 = [];
+for i in range(8):
+    for j in range(4):
+        name_list2.append(str(i+1)+str(j+4))
+
+print(name_list2)
+
+name_list = name_list1 + name_list2
+print(name_list, len(name_list))
 
 lines = []
 count = 0
@@ -39,7 +49,7 @@ def on_click(x, y, button, pressed):
         count = 0
 
     if browser > browsers:
-        with open('realLoc.txt', 'w') as f:
+        with open('realLoc3.txt', 'w') as f:
             f.write('\n'.join(lines))
 
 

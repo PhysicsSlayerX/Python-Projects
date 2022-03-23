@@ -14,25 +14,36 @@ import pyautogui
 
 # Number of browsers
 browsers = 1
-name_list = ['All1', 'All2', 'All3', 'All4', 
-             'Exit1', 'Exit2', 'Exit3', 'Exit4', 
-             'TH1','TH2', 'TH3', 'TH4',
-             'Back1', 'Back2', 'Back3', 'Back4',
-             'HP1', 'HP2', 'HP3', 'HP4',
-             'RA1', 'RA2', 'RA3', 'RA4']
+
+name_list1 = [];
+for i in range(8):
+    for j in range(3):
+        name_list1.append(str(i+1)+str(j+1))
+
+print(name_list1)
+
+name_list2 = [];
+for i in range(8):
+    for j in range(4):
+        name_list2.append(str(i+1)+str(j+4))
+
+print(name_list2)
+
+name_list = name_list1 + name_list2
+print(name_list, len(name_list))
 
 pos = []
-timeInterval = 0.25; #one second interval
-numSteps = 24;
+timeInterval = 0.1; #one second interval
+numSteps = 56;
 secs = 1
 minutes = 60*secs
-bombingTime = 20*minutes
-restingTime = 75*minutes
+bombingTime = 17*minutes
+restingTime = 60*minutes
 
 #####################################################
 # Import the locations.txt
 #####################################################
-with open('realLoc.txt') as f:
+with open('realLoc3.txt') as f:
     lines = f.read().splitlines()
 
 # Dictionary #
@@ -75,12 +86,12 @@ while True:
         sleep(timeInterval)
         count +=1
         print(count)
-        if count == 12:
+        if count == 24:
             print('Bombing time')
             sleep(bombingTime)
             print('Let them sleep')
             
-        if count >= 24:
+        if count >= 56:
             count = 0
             print('Sleeping Time')
             sleep(restingTime)
